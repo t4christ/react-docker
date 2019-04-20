@@ -1,0 +1,53 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+  redis:
+    image: 'redis:latest'
+    environment:
+      - REDIS_HOST = redis
+      - REDIS_PORT = 6379
+      - PGHOST = postgres
+      - PGDATABASE = postgres
+      - PGUSER = postgres
+      - PGPASSWORD = postgres_pass
+      - PGPORT = 5432
+
+  docker-react:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./docker-react
+
+    volumes:
+      - /app/node_modules
+      - ./docker-react:/app
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context:  ./nginx
+    ports:
+      - "5050:80"
+
+
+
+  api:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+
+  worker:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./worker
+    volumes:
+      - /app/node_modules
+      - ./worker:/app
+
+
+
+    
