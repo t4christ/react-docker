@@ -1,7 +1,8 @@
 FROM node:alpine
 
+RUN mkdir -p client
 
-WORKDIR '/app'
+WORKDIR '/client'
 
 
 COPY ./package.json ./
