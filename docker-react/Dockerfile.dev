@@ -1,11 +1,11 @@
 FROM node:alpine
 
-RUN mkdir -p client
-
-WORKDIR '/client'
 
 
-COPY ./package.json ./
+WORKDIR '/app'
+
+
+COPY ./package.json .
 
 #run package installations
 RUN npm install
