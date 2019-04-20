@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t t4christ/react-docker -f ./docker-react/Dockerfile.dev .
+  - docker build -t t4christ/react-docker -f ./docker-react/Dockerfile.dev ./docker-react.
 
 script:
   - docker run t4christ/react-docker npm run test -- --coverage
