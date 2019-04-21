@@ -106,4 +106,9 @@ if any(Pizza.validate_topping(i) for i in ingredients):
 
     # print(bool(pizza))
 
-import this
+
+# multi-docker-redis.4oqni4.ng.0001.use2.cache.amazonaws.com
+# multi-docker.c6avycbo4tgl.us-east-2.rds.amazonaws.com
+
+
+
