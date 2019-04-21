@@ -32,7 +32,7 @@ deploy:
   app: mulit-docker
   env: MulitDocker-env
   bucket_name: elasticbeanstalk-us-east-2-632874205370
-  bucket_path: mulit-docker
+  bucket_path: docker-react
   on:
     branch: master
 
