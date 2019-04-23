@@ -9,7 +9,7 @@ script:
   - docker run t4christ/react-docker npm run test -- --coverage
 
 after_success:
-  - docker build -t teplode/client  ./docker-react
+  - docker build -t texplode/client  ./docker-react
   - docker build -t texplode/nginx  ./nginx
   - docker build -t texplode/server  ./server
   - docker build -t texplode/worker  ./worker
@@ -26,16 +26,16 @@ after_success:
   - docker push texplode/server
 
 
-deploy:
-  provider: elasticbeanstalk
-  region: us-east-2
-  app: mulit-docker
-  env: MulitDocker-env
-  bucket_name: elasticbeanstalk-us-east-2-632874205370
-  bucket_path: docker-react
-  on:
-    branch: master
+# deploy:
+#   provider: elasticbeanstalk
+#   region: us-east-2
+#   app: mulit-docker
+#   env: MulitDocker-env
+#   bucket_name: elasticbeanstalk-us-east-2-632874205370
+#   bucket_path: docker-react
+#   on:
+#     branch: master
 
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: "$AWS_SECRET_KEY"
