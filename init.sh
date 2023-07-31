@@ -1,7 +1,12 @@
 #!/bin/bash
-sudo yum update -y
+sudo yum update -y 
 sudo yum -y install docker python3 python3-pip
-service docker start
-usermod -a -G docker ec2-user
-chkconfig docker on
-pip3 install docker-compose virtualenv
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo docker network create --driver=bridge --attachable redis_nw
+sudo docker network create --driver=bridge --attachable web_nw
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo docker-compose up -d
+pip3 install virtualenv
+
