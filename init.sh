@@ -3,8 +3,8 @@ sudo yum update -y
 sudo yum -y install docker python3 python3-pip
 sudo systemctl enable docker
 sudo systemctl start docker
-sudo usermod -aG docker $USER
-sudo newgrp docker
+# sudo usermod -aG docker $USER
+# sudo newgrp docker
 # sudo docker swarm init
 # sudo docker network create --driver=bridge --attachable redis_nw
 # sudo docker network create --driver=bridge --attachable web_nw
